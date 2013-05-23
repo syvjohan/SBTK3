@@ -11,7 +11,7 @@ using System.Drawing.Imaging;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Form1 : Form
+    public partial class SBTK3 : Form
     {
         List<PictureBox> clips;
         bool isCreatingRect = false;
@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
         Point beginRectPt;
         Point endRectPt;
 
-        public Form1()
+        public SBTK3()
         {
             InitializeComponent();
             previewPicBox.SizeMode = PictureBoxSizeMode.AutoSize;

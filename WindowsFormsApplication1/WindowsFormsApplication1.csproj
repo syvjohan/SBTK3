@@ -46,15 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\SBTK3\SBTK3.cs">
+    <Compile Include="SBTK3.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="..\..\..\SBTK3\SBTK3.Designer.cs">
+    <Compile Include="SBTK3.Designer.cs">
       <DependentUpon>SBTK3.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="..\..\..\SBTK3\SBTK3.resx">
+    <EmbeddedResource Include="SBTK3.resx">
       <DependentUpon>SBTK3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
