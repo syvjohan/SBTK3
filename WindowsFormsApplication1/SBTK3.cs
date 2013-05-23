@@ -22,11 +22,11 @@ namespace WindowsFormsApplication1
         public SBTK3()
         {
             InitializeComponent();
-            previewPicBox.SizeMode = PictureBoxSizeMode.AutoSize;
 
             currentClipRect = Rectangle.Empty;
             clips = new List<PictureBox>();
 
+            // Allowed file formats.
             loadImgDialog.Filter = "*.png, *.jpg, *.bmp|*.png;*.jpg;*.bmp";
 
             SetupEventHandlers();
@@ -70,8 +70,8 @@ namespace WindowsFormsApplication1
                 {
                     PictureBox pb = GetPreviewImageSnapshot();
 
-                    bool isSelected = false;
-                    bool isDragging = false;
+                    bool isSelected = false; // Variable to check which pictureBox is selected by the user.
+                    bool isDragging = false; // Variable to controlling the dragging.
                     Point offset = Point.Empty;
 
                     // Lets us start dragging the control around, and sends all others to the back.
@@ -81,11 +81,12 @@ namespace WindowsFormsApplication1
                         offset = ma.Location;
 
                         pb.BringToFront();
-                        pb.Focus();
+                        // Gives the controll Focus, which makes it possible for pb.GotFocus and LostFocus to execute.
+                        pb.Focus(); 
                     };
 
-                    pb.GotFocus += delegate(object s, EventArgs e) 
-                    { 
+                    pb.GotFocus += delegate(object s, EventArgs e)
+                    {
                         isSelected = true;
                         pb.Invalidate();
                     };
@@ -98,6 +99,7 @@ namespace WindowsFormsApplication1
                     {
                         if (isSelected)
                         {
+                            // Draw a rectangle around the selected pictureBox in the composePnl.
                             e.Graphics.DrawRectangle(
                                 Pens.Gold,
                                 new Rectangle(
@@ -117,7 +119,7 @@ namespace WindowsFormsApplication1
                         pb.Invalidate();
                     };
 
-                    // Lets us move the picturebox into its current location.
+                    // Lets the user move the picturebox into its current location.
                     pb.MouseMove += delegate(object s, MouseEventArgs ma)
                     {
                         if (isDragging)
@@ -130,6 +132,7 @@ namespace WindowsFormsApplication1
 
                     pb.PreviewKeyDown += delegate(object s, PreviewKeyDownEventArgs ke)
                     {
+                        // Lets the user delete a picturebox in the List by pressing "Delete".
                         if (ke.KeyCode == Keys.Delete)
                         {
                             clips.Remove(pb);
@@ -147,6 +150,10 @@ namespace WindowsFormsApplication1
             };
         }
 
+        /// <summary>
+        /// Draw an image with the same size as the currentCliptRec.
+        /// </summary>
+        /// <returns></returns>
         PictureBox GetPreviewImageSnapshot()
         {
             Size imageSize = new Size(currentClipRect.Width, currentClipRect.Height);
@@ -169,7 +176,12 @@ namespace WindowsFormsApplication1
             return pb;
         }
 
-        // FACTORY METHOD OF PURE AWESOMENESS? ???? ?? ? 
+        /// <summary>
+        /// Draw a negative and positive rectangle
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
         Rectangle RectFromMinMax(Point a, Point b)
         {
             Rectangle rect = Rectangle.Empty;
@@ -198,14 +210,17 @@ namespace WindowsFormsApplication1
                 rect.Height = b.Y - a.Y;
             }
 
-            
+
             return rect;
         }
 
-        // Exports an image from our clips.
+        /// <summary>
+        /// Exports an image from the clips.
+        /// </summary>
+        /// <param name="filename"></param>
         void ExportImage(string filename)
         {
-            // Will hold image size.
+            // Hold image size.
             Size sz = Size.Empty;
 
             foreach (PictureBox pb in clips)
@@ -229,6 +244,7 @@ namespace WindowsFormsApplication1
                 g.DrawImage(pb.Image, pb.Location);
             }
 
+            // Saving the file as an png format
             using (FileStream stream = new FileStream(filename, FileMode.OpenOrCreate))
             {
                 bmp.Save(stream, ImageFormat.Png);
@@ -237,6 +253,11 @@ namespace WindowsFormsApplication1
 
         #region EVENTHANDLERS
 
+        /// <summary>
+        /// Makes the loaded files to be added in the imagePnl and set there size to 32*32.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void loadImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult dr = loadImgDialog.ShowDialog();
@@ -244,11 +265,11 @@ namespace WindowsFormsApplication1
             if (dr != DialogResult.OK)
                 return;
 
-
             Image img = Image.FromFile(loadImgDialog.FileName);
 
             PictureBox box = new PictureBox();
             box.Image = img;
+            // sets the size of the pictureBox
             box.MaximumSize = new Size(32, 32);
             box.SizeMode = PictureBoxSizeMode.StretchImage;
 
@@ -260,9 +281,15 @@ namespace WindowsFormsApplication1
             imagePnl.Controls.Add(box);
         }
 
+        /// <summary>
+        /// Makes all exported files saves as png files.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
+
             sfd.Filter = "*.png|*.png";            
 
             DialogResult dr = sfd.ShowDialog();
@@ -272,10 +299,15 @@ namespace WindowsFormsApplication1
                 return;
             }
 
-            
+            // Set the exported file name to end with png.
             ExportImage(sfd.FileName.EndsWith(".png") ? sfd.FileName : sfd.FileName + ".png");
         }
 
+        /// <summary>
+        /// StripMenu to Clear the right Panel (composePnl).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void clearToolStripMenuItem_Click(object sender, EventArgs e)
         {
             clips.Clear();
@@ -284,11 +316,15 @@ namespace WindowsFormsApplication1
 
         #endregion
 
+       /// <summary>
+        /// StripMenu to view object deleting help.
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Press delete to remove images lol.");
+            MessageBox.Show("To delete one of the object in the right panel, press the key \"Del\"");
         }
-
 
     }
 

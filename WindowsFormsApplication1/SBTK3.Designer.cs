@@ -52,7 +52,8 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(890, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
+            this.menuStrip1.Size = new System.Drawing.Size(1187, 25);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -118,9 +119,10 @@
             this.composePnl.BackColor = System.Drawing.Color.White;
             this.composePnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.composePnl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.composePnl.Location = new System.Drawing.Point(492, 24);
+            this.composePnl.Location = new System.Drawing.Point(653, 25);
+            this.composePnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.composePnl.Name = "composePnl";
-            this.composePnl.Size = new System.Drawing.Size(398, 492);
+            this.composePnl.Size = new System.Drawing.Size(534, 729);
             this.composePnl.TabIndex = 4;
             // 
             // loadImgDialog
@@ -131,9 +133,10 @@
             // 
             this.imagePnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.imagePnl.Dock = System.Windows.Forms.DockStyle.Left;
-            this.imagePnl.Location = new System.Drawing.Point(0, 24);
+            this.imagePnl.Location = new System.Drawing.Point(0, 25);
+            this.imagePnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.imagePnl.Name = "imagePnl";
-            this.imagePnl.Size = new System.Drawing.Size(200, 492);
+            this.imagePnl.Size = new System.Drawing.Size(265, 729);
             this.imagePnl.TabIndex = 5;
             // 
             // previewPnl
@@ -143,23 +146,26 @@
             this.previewPnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.previewPnl.Controls.Add(this.previewPicBox);
             this.previewPnl.Dock = System.Windows.Forms.DockStyle.Left;
-            this.previewPnl.Location = new System.Drawing.Point(200, 24);
+            this.previewPnl.Location = new System.Drawing.Point(265, 25);
+            this.previewPnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.previewPnl.Name = "previewPnl";
-            this.previewPnl.Size = new System.Drawing.Size(292, 492);
+            this.previewPnl.Size = new System.Drawing.Size(388, 729);
             this.previewPnl.TabIndex = 0;
             // 
             // SBTK3
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(890, 516);
+            this.ClientSize = new System.Drawing.Size(1187, 754);
             this.Controls.Add(this.composePnl);
             this.Controls.Add(this.previewPnl);
             this.Controls.Add(this.imagePnl);
             this.Controls.Add(this.menuStrip1);
+            this.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SBTK3";
-            this.Text = "SBTK3";
+            this.Text = "Shiny-Bear ToolKit";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.previewPicBox)).EndInit();
