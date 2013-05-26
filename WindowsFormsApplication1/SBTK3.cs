@@ -27,7 +27,7 @@ namespace WindowsFormsApplication1
             clips = new List<PictureBox>();
 
             // Allowed file formats.
-            loadImgDialog.Filter = "*.png, *.jpg, *.bmp|*.png;*.jpg;*.bmp";
+            loadImgDialog.Filter = "*.png, *.jpg, *.bmp, *.jpeg|*.png;*.jpg;*.bmp; *.jpeg";
 
             SetupEventHandlers();
         }
