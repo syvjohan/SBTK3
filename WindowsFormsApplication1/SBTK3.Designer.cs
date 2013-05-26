@@ -33,7 +33,6 @@
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.previewPicBox = new System.Windows.Forms.PictureBox();
             this.composePnl = new System.Windows.Forms.Panel();
@@ -62,43 +61,36 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clearToolStripMenuItem,
             this.loadImageToolStripMenuItem,
-            this.exportToolStripMenuItem,
-            this.quitToolStripMenuItem});
+            this.exportToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 19);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clearToolStripMenuItem.Text = "New";
             this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
             // 
             // loadImageToolStripMenuItem
             // 
             this.loadImageToolStripMenuItem.Name = "loadImageToolStripMenuItem";
-            this.loadImageToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.loadImageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loadImageToolStripMenuItem.Text = "Load Image";
             this.loadImageToolStripMenuItem.Click += new System.EventHandler(this.loadImageToolStripMenuItem_Click);
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exportToolStripMenuItem.Text = "Export...";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
-            // 
-            // quitToolStripMenuItem
-            // 
-            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.quitToolStripMenuItem.Text = "Quit";
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 19);
             this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
@@ -120,7 +112,7 @@
             this.composePnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.composePnl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.composePnl.Location = new System.Drawing.Point(653, 25);
-            this.composePnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.composePnl.Margin = new System.Windows.Forms.Padding(4);
             this.composePnl.Name = "composePnl";
             this.composePnl.Size = new System.Drawing.Size(534, 729);
             this.composePnl.TabIndex = 4;
@@ -134,7 +126,7 @@
             this.imagePnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.imagePnl.Dock = System.Windows.Forms.DockStyle.Left;
             this.imagePnl.Location = new System.Drawing.Point(0, 25);
-            this.imagePnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.imagePnl.Margin = new System.Windows.Forms.Padding(4);
             this.imagePnl.Name = "imagePnl";
             this.imagePnl.Size = new System.Drawing.Size(265, 729);
             this.imagePnl.TabIndex = 5;
@@ -147,7 +139,7 @@
             this.previewPnl.Controls.Add(this.previewPicBox);
             this.previewPnl.Dock = System.Windows.Forms.DockStyle.Left;
             this.previewPnl.Location = new System.Drawing.Point(265, 25);
-            this.previewPnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.previewPnl.Margin = new System.Windows.Forms.Padding(4);
             this.previewPnl.Name = "previewPnl";
             this.previewPnl.Size = new System.Drawing.Size(388, 729);
             this.previewPnl.TabIndex = 0;
@@ -163,7 +155,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SBTK3";
             this.Text = "Shiny-Bear ToolKit";
             this.menuStrip1.ResumeLayout(false);
@@ -181,7 +173,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadImageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.PictureBox previewPicBox;
         private System.Windows.Forms.Panel composePnl;
         private System.Windows.Forms.OpenFileDialog loadImgDialog;
